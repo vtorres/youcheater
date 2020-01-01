@@ -5,6 +5,22 @@ load_dotenv()
 
 class Env():
     @staticmethod
+    def clock_time_zone():
+        valid_time_zones = ["est", "utm", "gtm"]
+        time_zone = environment_env("CLOCK_TIME_ZONE")
+
+        if time_zone not in valid_time_zones:
+            return valid_time_zones[0]
+        
+        return time_zone
+
+    @staticmethod
+    def clock_api_url():
+        return "http://worldclockapi.com/api/json/{time_zone}/now".format(
+            time_zone=Env.clock_time_zone()
+        )
+
+    @staticmethod
     def api_client_secret_file():
         return environment_env("API_CLIENT_SECRET_FILE")
 
