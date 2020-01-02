@@ -41,5 +41,17 @@ class Env():
         return environment_env("API_TOKEN_STORAGE")
 
     @staticmethod
+    def channel_id():
+        return environment_env("CHANNEL_ID")
+
+    @staticmethod
+    def channel_url():
+        return environment_env("CHANNEL_URL")
+
+    @staticmethod
+    def channel_last_video_id():
+        return environment_env("CHANNEL_LAST_VIDEO_ID")
+
+    @staticmethod
     def comment_message():
         return environment_env("COMMENT_MSG", "First!")
